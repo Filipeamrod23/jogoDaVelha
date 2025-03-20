@@ -12,14 +12,14 @@ let reset = document.querySelector('.reset');
 reset.addEventListener("click", function(){
     window.location.reload();
 });
-let combinacoesVencedoras = [[1, 2 , 3], 
-[3, 4, 5], 
-[5, 6 ,7], 
+let combinacoesVencedoras = [[0, 1, 2], 
+[2, 3, 4], 
+[4, 5, 6], 
+[0, 3, 6], 
 [1, 4, 7], 
 [2, 5, 8], 
-[3, 6, 9], 
-[1, 5, 9], 
-[3, 5, 7]];
+[0, 4, 8], 
+[2, 4, 6]];
 
 
 teclas.forEach((tecla, index)=>{
@@ -38,6 +38,32 @@ teclas.forEach((tecla, index)=>{
             }
             tecla.innerText = simbolo;
             jogadorAtual = jogadorAtual + 1
+            gameBoard[index] = simbolo
+            checkPositions()
         }
     })
 });
+
+function checkPositions(){
+    // for: estrutura de repetição
+    for(let i = 0; i <= 8; i = i + 1){
+        if(gameBoard[combinacoesVencedoras[i][0] ]=== "X" && gameBoard[combinacoesVencedoras[i][1]]=== "X" && gameBoard[combinacoesVencedoras[i][2]] === "X"){
+            teclas[combinacoesVencedoras[i][0]].style.background = "green";
+            teclas[combinacoesVencedoras[i][1]].style.background = "green";
+            teclas[combinacoesVencedoras[i][2]].style.background = "green";
+
+            jogador.innerText = "X ganhou!!11!!!11"
+        }else if(gameBoard[combinacoesVencedoras[i][0]] === "O" && gameBoard[combinacoesVencedoras[i][1]] === "O" && gameBoard[combinacoesVencedoras[i][2]] === "O"){
+            teclas[combinacoesVencedoras[i][0]].style.background = "green";
+            teclas[combinacoesVencedoras[i][1]].style.background = "green";
+            teclas[combinacoesVencedoras[i][2]].style.background = "green";
+
+            jogador.innerText = "O ganhou!!11!!!11"
+        }
+        
+        if(jogadorAtual == 9){
+            teclas.forEach(tecla => tecla.style.background = "gray");
+            jogador.innerText = "EMPATE"
+        }
+    }
+}
