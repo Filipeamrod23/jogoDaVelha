@@ -12,9 +12,10 @@ let reset = document.querySelector('.reset');
 reset.addEventListener("click", function(){
     window.location.reload();
 });
-let combinacoesVencedoras = [[0, 1, 2], 
-[2, 3, 4], 
-[4, 5, 6], 
+let combinacoesVencedoras = [
+[0, 1, 2], 
+[3, 4, 5], 
+[6, 7, 8], 
 [0, 3, 6], 
 [1, 4, 7], 
 [2, 5, 8], 
