@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 .body{
     height: 100vh;
     display: flex;
@@ -29,14 +29,38 @@
     transform: scale(1.1);
 }
 /* Estilos para o Jogo */
-.game-board button{
+
+.game-board{
+    width: 312px;
+    height: 312px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 12px;
+}
+.cell{
     width: 100px;
     height: 100px;
     border-radius: 10px;
-    margin: 2px;
     cursor: pointer;
-    background-color: whitesmoke;
+    font-size: 36px;
+    font-weight: 600;
 }
-.game-board button:hover{
-    opacity: 0.6;
+.reset{
+    padding: 12px;
+    background-color: rgb(210, 30, 30);
+    color: whitesmoke;
+    border-radius: 10px;
+    font-weight: 600;
+    font-family: "Roboto Slab", serif;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+    margin-top: 9px;
+}
+
+.reset:hover{
+    transform: scale(1.1);
 }
